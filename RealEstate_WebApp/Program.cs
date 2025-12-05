@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using RealEstate_WebApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<RealestateDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RealEstateDB")));
+
 
 var app = builder.Build();
 
