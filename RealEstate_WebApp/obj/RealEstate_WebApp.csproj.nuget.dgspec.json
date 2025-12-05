@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tejas\\OneDrive\\Desktop\\Internship\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj": {}
+    "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tejas\\OneDrive\\Desktop\\Internship\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj": {
+    "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tejas\\OneDrive\\Desktop\\Internship\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj",
+        "projectUniqueName": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj",
         "projectName": "RealEstate_WebApp",
-        "projectPath": "C:\\Users\\tejas\\OneDrive\\Desktop\\Internship\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj",
+        "projectPath": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\RealEstate_WebApp.csproj",
         "packagesPath": "C:\\Users\\tejas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tejas\\OneDrive\\Desktop\\Internship\\RealEstate_WebApp\\RealEstate_WebApp\\obj\\",
+        "outputPath": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,21 +51,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[8.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

@@ -1,1 +1,329 @@
-[]
+[
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.PropertyController",
+    "Method": "GetProperties",
+    "RelativePath": "api/Property",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RealEstate_WebApp.Models.Property, RealEstate_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.PropertyController",
+    "Method": "PostProperty",
+    "RelativePath": "api/Property",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "property",
+        "Type": "RealEstate_WebApp.Models.Property",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RealEstate_WebApp.Models.Property",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.PropertyController",
+    "Method": "GetProperty",
+    "RelativePath": "api/Property/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RealEstate_WebApp.Models.Property",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.PropertyController",
+    "Method": "PutProperty",
+    "RelativePath": "api/Property/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "property",
+        "Type": "RealEstate_WebApp.Models.Property",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.PropertyController",
+    "Method": "DeleteProperty",
+    "RelativePath": "api/Property/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.RentalPropertiesController",
+    "Method": "GetRentalProperties",
+    "RelativePath": "api/RentalProperties",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RealEstate_WebApp.Models.RentalProperty, RealEstate_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.RentalPropertiesController",
+    "Method": "PostRentalProperty",
+    "RelativePath": "api/RentalProperties",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rentalProperty",
+        "Type": "RealEstate_WebApp.Models.RentalProperty",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RealEstate_WebApp.Models.RentalProperty",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.RentalPropertiesController",
+    "Method": "GetRentalProperty",
+    "RelativePath": "api/RentalProperties/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RealEstate_WebApp.Models.RentalProperty",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.RentalPropertiesController",
+    "Method": "PutRentalProperty",
+    "RelativePath": "api/RentalProperties/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "rentalProperty",
+        "Type": "RealEstate_WebApp.Models.RentalProperty",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.RentalPropertiesController",
+    "Method": "DeleteRentalProperty",
+    "RelativePath": "api/RentalProperties/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.SalesPropertiesController",
+    "Method": "GetSalesProperties",
+    "RelativePath": "api/SalesProperties",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RealEstate_WebApp.Models.SalesProperty, RealEstate_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.SalesPropertiesController",
+    "Method": "PostSalesProperty",
+    "RelativePath": "api/SalesProperties",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "salesProperty",
+        "Type": "RealEstate_WebApp.Models.SalesProperty",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RealEstate_WebApp.Models.SalesProperty",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.SalesPropertiesController",
+    "Method": "GetSalesProperty",
+    "RelativePath": "api/SalesProperties/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RealEstate_WebApp.Models.SalesProperty",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.SalesPropertiesController",
+    "Method": "PutSalesProperty",
+    "RelativePath": "api/SalesProperties/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "salesProperty",
+        "Type": "RealEstate_WebApp.Models.SalesProperty",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.SalesPropertiesController",
+    "Method": "DeleteSalesProperty",
+    "RelativePath": "api/SalesProperties/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

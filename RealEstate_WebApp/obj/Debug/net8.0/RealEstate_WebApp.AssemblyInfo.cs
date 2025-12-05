@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RealEstate_WebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5bca2c6305b82af4015eec126d868ccb57868c30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e106e0d86204fdb40496e1e73badb792f66ac51")]
 [assembly: System.Reflection.AssemblyProductAttribute("RealEstate_WebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RealEstate_WebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
