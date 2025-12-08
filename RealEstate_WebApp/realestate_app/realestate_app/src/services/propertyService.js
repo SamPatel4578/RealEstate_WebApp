@@ -3,7 +3,7 @@
 const API_BASE_URL = "https://localhost:7282/api";
 
 export const getAllProperties = async () => {
-    return await axios.get(`${API_BASE_URL}/PropertiesApi`);
+    return await axios.get(`${API_BASE_URL}/Property`);
 };
 
 export const getPropertyById = async (id) => {
@@ -11,9 +11,9 @@ export const getPropertyById = async (id) => {
 };
 
 export const getSalesProperties = async () => {
-    return await axios.get(`${API_BASE_URL}/SalesPropertiesApi`);
+    return await axios.get(`${API_BASE_URL}/SalesProperties`);
 };
 
 export const getRentalProperties = async () => {
-    return await axios.get(`${API_BASE_URL}/RentalPropertiesApi`);
+    return await axios.get(`${API_BASE_URL}/RentalProperties`);
 };

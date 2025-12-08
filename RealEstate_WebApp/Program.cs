@@ -9,6 +9,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<RealestateDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("RealEstateDB")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000") // React dev server
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
 
@@ -24,6 +34,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors("AllowReactApp");
 
 app.UseAuthorization();
 
