@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\components\\propertycard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\components\\propertycard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,20 +30,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T02:59:56.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PropertyController.cs",
               "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\Controllers\\PropertyController.cs",
               "RelativeDocumentMoniker": "Controllers\\PropertyController.cs",
@@ -59,7 +42,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PropertyCard.jsx",
               "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\PropertyCard.jsx",
               "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\components\\PropertyCard.jsx",
@@ -72,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Properties.jsx",
               "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\Properties.jsx",
               "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\components\\Properties.jsx",
