@@ -6,6 +6,7 @@ import SearchBar from "./components/SearchBar";
 import Properties from "./components/Properties";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 import './styles/main.css';
 
@@ -27,6 +28,7 @@ function App() {
                 />
 
                 <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
             </Routes>
 
             <Footer />

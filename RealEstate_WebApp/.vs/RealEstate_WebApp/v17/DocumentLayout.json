@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\components\\login.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\components\\login.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\components\\signup.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\components\\signup.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\styles\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\styles\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.css",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\styles\\main.css",
+              "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\styles\\main.css",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\styles\\main.css",
+              "RelativeToolTip": "realestate_app\\realestate_app\\src\\styles\\main.css",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-09T04:39:12.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.jsx",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\Login.jsx",
+              "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\components\\Login.jsx",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\Login.jsx",
+              "RelativeToolTip": "realestate_app\\realestate_app\\src\\components\\Login.jsx",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-12-09T04:17:07.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwEYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T03:49:04.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Signup.jsx",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\Signup.jsx",
+              "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\components\\Signup.jsx",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\Signup.jsx",
+              "RelativeToolTip": "realestate_app\\realestate_app\\src\\components\\Signup.jsx",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAwAEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-12-09T03:45:16.196Z",
+              "EditorCaption": ""
             }
           ]
         }

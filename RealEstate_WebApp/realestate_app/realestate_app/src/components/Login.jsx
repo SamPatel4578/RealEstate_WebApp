@@ -1,4 +1,5 @@
 ﻿import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Login() {
@@ -66,8 +67,8 @@ export default function Login() {
                             </button>
                         </form>
 
-                        <div className="auth-footer">
-                            Don't have an account? <a href="/register">Create Account</a>
+                        <div className="auth-footer mt-3">
+                            Don't have an account? <Link to="/signup" className="auth-link">Create Account</Link>
                         </div>
                     </div>
                 </div>

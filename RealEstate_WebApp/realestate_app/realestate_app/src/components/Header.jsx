@@ -44,6 +44,7 @@ export default function Header() {
                         {/* Login Button */}
                         <li className="nav-item ms-3">
                             <Link className="btn btn-login-nav" to="/login">Login</Link>
+                            <Link className="btn btn-login-nav" to="/signup">Create Account</Link>
                         </li>
 
                     </ul>
