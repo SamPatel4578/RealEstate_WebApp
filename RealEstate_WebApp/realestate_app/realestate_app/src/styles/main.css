@@ -8,6 +8,22 @@ body {
     color: #2c3e50;
 }
 
+/* Make footer stick to bottom */
+html, body {
+    height: 100%;
+}
+
+#root {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+
 * {
     box-sizing: border-box;
 }
@@ -93,47 +109,99 @@ body {
     }
 }
 
-/* Navbar */
+/* ============================= */
+/* DREAMHOME NAVBAR GLOBAL STYLE */
+/* ============================= */
+
 .custom-navbar {
     background: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    animation: fadeInDown 0.8s ease-out;
+    padding: 0.75rem 0;
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
     color: #2c3e50 !important;
-    animation: slideInLeft 0.8s ease-out;
+    text-decoration: none;
 }
 
 .nav-link {
     color: #2c3e50 !important;
     font-weight: 500;
-    transition: all 0.3s ease;
-    margin: 0 1rem;
-    position: relative;
+    margin: 0 0.75rem;
+    cursor: pointer;
 }
 
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #3498db;
-        transition: width 0.3s ease;
+    /* Dropdown */
+    .nav-link.dropdown-toggle {
+        padding-right: 0.5rem;
     }
 
-    .nav-link:hover {
-        color: #3498db !important;
+.dropdown-menu {
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    color: #2c3e50;
+}
+
+    .dropdown-item:hover {
+        background: #eef0ff;
+        color: #667eea;
+    }
+
+/* Animation */
+.fade-down {
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.25s ease-out;
+}
+
+.custom-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover highlight for items */
+.dropdown-item {
+    transition: 0.2s ease;
+}
+
+    .dropdown-item:hover {
+        background-color: #eef0ff !important;
+        color: #6658ea !important;
+        transform: translateX(3px);
+    }
+
+/* Hover highlight for menu trigger */
+.nav-link.dropdown-toggle:hover {
+    color: #6658ea !important;
+}
+
+
+/* Login Button */
+.btn-login-nav {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff !important;
+    padding: 0.45rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+    .btn-login-nav:hover {
         transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(102, 126, 234, 0.35);
+        color: #ffffff !important;
     }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
 
 /* Hero Section */
 .hero {
@@ -321,3 +389,93 @@ body {
         font-size: 1rem;
     }
 }
+
+
+/* ========================= */
+/* AUTH PAGE (LOGIN/SIGNUP) */
+/* ========================= */
+
+.hero-auth {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+    .hero-auth::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        animation: shimmer 3s infinite;
+    }
+
+    .hero-auth h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        animation: fadeInUp 1s ease-out;
+    }
+
+.auth-container {
+    max-width: 500px;
+    margin: -3rem auto 3rem;
+    position: relative;
+    animation: scaleIn 0.8s ease-out;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.auth-emoji {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.auth-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 0.875rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+    .btn-primary-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102,126,234,0.3);
+    }
+
+.custom-footer {
+    background: #2c3e50;
+    color: white;
+    margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+    .custom-footer p {
+        margin: 0;
+    }

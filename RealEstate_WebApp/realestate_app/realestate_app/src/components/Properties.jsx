@@ -22,7 +22,7 @@ export default function Properties() {
             <div className="row g-4">
                 {properties.length > 0 ? (
                     properties.map((p) => (
-                        <PropertyCard key={p.propertyID} property={p} />
+                        <PropertyCard key={p.propertyId} property={p} />
                     ))
                 ) : (
                     <p>Loading...</p>

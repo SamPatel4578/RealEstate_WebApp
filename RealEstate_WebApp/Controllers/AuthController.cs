@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RealEstate_WebApp.Models;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace RealEstate_WebApp.Controllers
 {
@@ -17,31 +15,41 @@ namespace RealEstate_WebApp.Controllers
             _context = context;
         }
 
+        // REGISTER (PLAIN TEXT VERSION)
         [HttpPost("register")]
         public async Task<IActionResult> Register(User user)
         {
             if (await _context.Users.AnyAsync(x => x.Email == user.Email))
                 return BadRequest("Email already exists.");
 
-            user.Password = HashPassword(user.Password);
-
+            // Store password as plain text (for now)
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
             return Ok("Registration successful");
         }
 
+        // LOGIN (PLAIN TEXT CHECK)
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest login)
         {
+            Console.WriteLine($"RAW INPUT PASSWORD: '{login.Password}' LENGTH: {login.Password.Length}");
+
             var user = await _context.Users
-                    .FirstOrDefaultAsync(x => x.Email == login.Email);
+                .FirstOrDefaultAsync(x => x.Email == login.Email);
 
             if (user == null)
                 return Unauthorized("Invalid email");
 
-            if (user.Password != HashPassword(login.Password))
+            Console.WriteLine($"DB PASSWORD: '{user.Password}' LENGTH: {user.Password.Length}");
+
+            if (user.Password != login.Password)
+            {
+                Console.WriteLine("MISMATCH!");
                 return Unauthorized("Invalid password");
+            }
+
+            Console.WriteLine("MATCHED!");
 
             return Ok(new
             {
@@ -50,15 +58,9 @@ namespace RealEstate_WebApp.Controllers
                 firstName = user.FirstName
             });
         }
-
-        private string HashPassword(string password)
-        {
-            using var sha = SHA256.Create();
-            var bytes = Encoding.UTF8.GetBytes(password);
-            return Convert.ToHexString(sha.ComputeHash(bytes));
-        }
     }
 
+    // Login request DTO
     public class LoginRequest
     {
         public string Email { get; set; }
