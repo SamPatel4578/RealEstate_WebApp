@@ -1,9 +1,12 @@
-﻿import { useState } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Signup() {
 
+    // -------------------------
+    // Form State
+    // -------------------------
     const [form, setForm] = useState({
         firstName: "",
         lastName: "",
@@ -14,53 +17,51 @@ export default function Signup() {
         confirmPassword: ""
     });
 
-    const [passwordChecks, setPasswordChecks] = useState({
-        length: false,
-        containsLetters: false,
-        containsNumbers: false,
-        containsSpecial: false
-    });
+    // -------------------------
+    // Password Validation State
+    // -------------------------
+    const [lengthOK, setLengthOK] = useState(false);
+    const [containsLetter, setContainsLetter] = useState(false);
+    const [containsNumber, setContainsNumber] = useState(false);
+    const [containsSpecial, setContainsSpecial] = useState(false);
 
-    const validatePassword = (value) => {
-        setPasswordChecks({
-            length: value.length === 14,
-            containsLetters: /[A-Za-z]/.test(value),
-            containsNumbers: /\d/.test(value),
-            containsSpecial: /[^A-Za-z0-9]/.test(value)
-        });
-    };
-
-    const allValid =
-        passwordChecks.length &&
-        passwordChecks.containsLetters &&
-        passwordChecks.containsNumbers &&
-        passwordChecks.containsSpecial;
-
+    // -------------------------
+    // Form Change Handler
+    // -------------------------
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm({ ...form, [name]: value });
-
-        if (name === "password") validatePassword(value);
+        setForm(prev => ({ ...prev, [name]: value }));
     };
 
+    // -------------------------
+    // Password Strength Check
+    // -------------------------
+    useEffect(() => {
+        const pwd = form.password;
+
+        setLengthOK(pwd.length === 14);
+        setContainsLetter(/[A-Za-z]/.test(pwd));
+        setContainsNumber(/[0-9]/.test(pwd));
+        setContainsSpecial(/[!@#$%^&*(),.?":{}|<>]/.test(pwd));
+
+    }, [form.password]);
+
+    const allValid = lengthOK && containsLetter && containsNumber && containsSpecial;
+
+    // -------------------------
+    // Submit Handler
+    // -------------------------
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // General validation
-        if (
-            !form.firstName ||
-            !form.lastName ||
-            !form.dob ||
-            !form.email ||
-            !form.password ||
-            !form.confirmPassword
-        ) {
+        // Required field checks
+        if (!form.firstName || !form.lastName || !form.dob || !form.email || !form.role || !form.password) {
             alert("All fields are required.");
             return;
         }
 
         if (!allValid) {
-            alert("Password does not meet all requirements.");
+            alert("Password does not meet the requirement.");
             return;
         }
 
@@ -69,8 +70,8 @@ export default function Signup() {
             return;
         }
 
-        // Send request
         try {
+            // Create User
             await axios.post("https://localhost:7282/api/users", {
                 firstName: form.firstName,
                 lastName: form.lastName,
@@ -80,12 +81,26 @@ export default function Signup() {
                 password: form.password
             });
 
-            alert("Account created successfully!");
+            // Auto-login
+            const loginResponse = await axios.post("https://localhost:7282/api/users/login", {
+                email: form.email,
+                password: form.password
+            });
+
+            // Save user
+            localStorage.setItem("user", JSON.stringify(loginResponse.data));
+
+            // Redirect
+            window.location.href = "/dashboard";
+
         } catch (err) {
             alert("Error creating account.");
         }
     };
 
+    // -------------------------------------------------
+    //  PAGE RETURN — THIS WAS BREAKING IN YOUR FILE
+    // -------------------------------------------------
     return (
         <>
             <section className="hero-auth">
@@ -106,50 +121,40 @@ export default function Signup() {
                             <div className="mb-3">
                                 <label className="form-label">First Name</label>
                                 <input type="text" className="form-control"
-                                    name="firstName"
-                                    value={form.firstName}
-                                    onChange={handleChange}
-                                    required />
+                                    name="firstName" value={form.firstName}
+                                    onChange={handleChange} required />
                             </div>
 
                             {/* Last Name */}
                             <div className="mb-3">
                                 <label className="form-label">Last Name</label>
                                 <input type="text" className="form-control"
-                                    name="lastName"
-                                    value={form.lastName}
-                                    onChange={handleChange}
-                                    required />
+                                    name="lastName" value={form.lastName}
+                                    onChange={handleChange} required />
                             </div>
 
                             {/* DOB */}
                             <div className="mb-3">
                                 <label className="form-label">Date of Birth</label>
                                 <input type="date" className="form-control"
-                                    name="dob"
-                                    value={form.dob}
-                                    onChange={handleChange}
-                                    required />
+                                    name="dob" value={form.dob}
+                                    onChange={handleChange} required />
                             </div>
 
                             {/* Email */}
                             <div className="mb-3">
                                 <label className="form-label">Email</label>
                                 <input type="email" className="form-control"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    required />
+                                    name="email" value={form.email}
+                                    onChange={handleChange} required />
                             </div>
 
                             {/* Role */}
                             <div className="mb-3">
                                 <label className="form-label">Role</label>
                                 <select className="form-select"
-                                    name="role"
-                                    value={form.role}
-                                    onChange={handleChange}
-                                >
+                                    name="role" value={form.role}
+                                    onChange={handleChange} required>
                                     <option value="Customer">Customer</option>
                                     <option value="Agent">Agent</option>
                                 </select>
@@ -159,49 +164,42 @@ export default function Signup() {
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
                                 <input type="password" className="form-control"
-                                    name="password"
-                                    value={form.password}
-                                    onChange={handleChange}
-                                    required />
+                                    name="password" value={form.password}
+                                    onChange={handleChange} required />
                             </div>
 
-                            {/* Password validation lines */}
-                            <ul style={{ listStyle: "none", paddingLeft: 0, fontSize: "0.9rem" }}>
-                                <li style={{ color: passwordChecks.length ? "green" : "red" }}>
-                                    {passwordChecks.length ? "✔" : "✖"} Must be exactly 14 characters
-                                </li>
-                                <li style={{ color: passwordChecks.containsLetters ? "green" : "red" }}>
-                                    {passwordChecks.containsLetters ? "✔" : "✖"} Must contain letters
-                                </li>
-                                <li style={{ color: passwordChecks.containsNumbers ? "green" : "red" }}>
-                                    {passwordChecks.containsNumbers ? "✔" : "✖"} Must contain numbers
-                                </li>
-                                <li style={{ color: passwordChecks.containsSpecial ? "green" : "red" }}>
-                                    {passwordChecks.containsSpecial ? "✔" : "✖"} Must contain special characters
-                                </li>
-                            </ul>
+                            {/* Password Rules */}
+                            <div style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>
+                                <p style={{ color: lengthOK ? "green" : "red" }}>
+                                    {lengthOK ? "✔" : "✖"} Password must be EXACTLY 14 characters
+                                </p>
+                                <p style={{ color: containsLetter ? "green" : "red" }}>
+                                    {containsLetter ? "✔" : "✖"} Must contain a letter
+                                </p>
+                                <p style={{ color: containsNumber ? "green" : "red" }}>
+                                    {containsNumber ? "✔" : "✖"} Must contain a number
+                                </p>
+                                <p style={{ color: containsSpecial ? "green" : "red" }}>
+                                    {containsSpecial ? "✔" : "✖"} Must contain a special character
+                                </p>
+                            </div>
 
                             {/* Confirm Password */}
                             <div className="mb-3">
                                 <label className="form-label">Confirm Password</label>
                                 <input type="password" className="form-control"
-                                    name="confirmPassword"
-                                    value={form.confirmPassword}
-                                    onChange={handleChange}
-                                    required />
+                                    name="confirmPassword" value={form.confirmPassword}
+                                    onChange={handleChange} required />
                             </div>
 
-                            <button
-                                className="btn btn-primary-custom"
-                                type="submit"
-                                disabled={!allValid}
-                            >
+                            <button className="btn btn-primary-custom" type="submit">
                                 Create Account
                             </button>
                         </form>
 
                         <div className="auth-footer">
-                            Already have an account? <Link to="/login">Login</Link>
+                            Already have an account?
+                            <Link to="/login" className="auth-link ms-1">Login</Link>
                         </div>
 
                     </div>
