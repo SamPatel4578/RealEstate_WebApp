@@ -3,42 +3,86 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Signup() {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+
+    const [form, setForm] = useState({
+        firstName: "",
+        lastName: "",
+        dob: "",
+        email: "",
+        role: "Customer",
+        password: "",
+        confirmPassword: ""
+    });
+
+    const [passwordChecks, setPasswordChecks] = useState({
+        length: false,
+        containsLetters: false,
+        containsNumbers: false,
+        containsSpecial: false
+    });
+
+    const validatePassword = (value) => {
+        setPasswordChecks({
+            length: value.length === 14,
+            containsLetters: /[A-Za-z]/.test(value),
+            containsNumbers: /\d/.test(value),
+            containsSpecial: /[^A-Za-z0-9]/.test(value)
+        });
+    };
+
+    const allValid =
+        passwordChecks.length &&
+        passwordChecks.containsLetters &&
+        passwordChecks.containsNumbers &&
+        passwordChecks.containsSpecial;
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+
+        if (name === "password") validatePassword(value);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError("");
-        setSuccess("");
 
-        if (password !== confirmPassword) {
-            setError("Passwords do not match.");
+        // General validation
+        if (
+            !form.firstName ||
+            !form.lastName ||
+            !form.dob ||
+            !form.email ||
+            !form.password ||
+            !form.confirmPassword
+        ) {
+            alert("All fields are required.");
             return;
         }
 
+        if (!allValid) {
+            alert("Password does not meet all requirements.");
+            return;
+        }
+
+        if (form.password !== form.confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        // Send request
         try {
-            const res = await axios.post("https://localhost:7282/api/Users/register", {
-                firstName,
-                lastName,
-                email,
-                password,
-                role: "customer" // default user role
+            await axios.post("https://localhost:7282/api/users", {
+                firstName: form.firstName,
+                lastName: form.lastName,
+                dob: form.dob,
+                email: form.email,
+                role: form.role,
+                password: form.password
             });
 
-            setSuccess("Account created successfully!");
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setPassword("");
-            setConfirmPassword("");
-
+            alert("Account created successfully!");
         } catch (err) {
-            setError(err.response?.data || "Registration failed.");
+            alert("Error creating account.");
         }
     };
 
@@ -51,57 +95,113 @@ export default function Signup() {
             <div className="container">
                 <div className="auth-container">
                     <div className="card auth-card">
-                        <div className="auth-emoji">🎉</div>
 
+                        <div className="auth-emoji">🎉</div>
                         <h2 className="auth-title">Sign Up</h2>
                         <p className="auth-subtitle">Create your account to get started</p>
 
-                        {error && <p className="text-danger">{error}</p>}
-                        {success && <p className="text-success">{success}</p>}
-
                         <form onSubmit={handleSubmit}>
+
+                            {/* First Name */}
                             <div className="mb-3">
                                 <label className="form-label">First Name</label>
-                                <input type="text" required className="form-control"
-                                    value={firstName}
-                                    onChange={(e) => setFirstName(e.target.value)} />
+                                <input type="text" className="form-control"
+                                    name="firstName"
+                                    value={form.firstName}
+                                    onChange={handleChange}
+                                    required />
                             </div>
 
+                            {/* Last Name */}
                             <div className="mb-3">
                                 <label className="form-label">Last Name</label>
-                                <input type="text" required className="form-control"
-                                    value={lastName}
-                                    onChange={(e) => setLastName(e.target.value)} />
+                                <input type="text" className="form-control"
+                                    name="lastName"
+                                    value={form.lastName}
+                                    onChange={handleChange}
+                                    required />
                             </div>
 
+                            {/* DOB */}
+                            <div className="mb-3">
+                                <label className="form-label">Date of Birth</label>
+                                <input type="date" className="form-control"
+                                    name="dob"
+                                    value={form.dob}
+                                    onChange={handleChange}
+                                    required />
+                            </div>
+
+                            {/* Email */}
                             <div className="mb-3">
                                 <label className="form-label">Email</label>
-                                <input type="email" required className="form-control"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)} />
+                                <input type="email" className="form-control"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    required />
                             </div>
 
+                            {/* Role */}
+                            <div className="mb-3">
+                                <label className="form-label">Role</label>
+                                <select className="form-select"
+                                    name="role"
+                                    value={form.role}
+                                    onChange={handleChange}
+                                >
+                                    <option value="Customer">Customer</option>
+                                    <option value="Agent">Agent</option>
+                                </select>
+                            </div>
+
+                            {/* Password */}
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
-                                <input type="password" required className="form-control"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)} />
+                                <input type="password" className="form-control"
+                                    name="password"
+                                    value={form.password}
+                                    onChange={handleChange}
+                                    required />
                             </div>
 
+                            {/* Password validation lines */}
+                            <ul style={{ listStyle: "none", paddingLeft: 0, fontSize: "0.9rem" }}>
+                                <li style={{ color: passwordChecks.length ? "green" : "red" }}>
+                                    {passwordChecks.length ? "✔" : "✖"} Must be exactly 14 characters
+                                </li>
+                                <li style={{ color: passwordChecks.containsLetters ? "green" : "red" }}>
+                                    {passwordChecks.containsLetters ? "✔" : "✖"} Must contain letters
+                                </li>
+                                <li style={{ color: passwordChecks.containsNumbers ? "green" : "red" }}>
+                                    {passwordChecks.containsNumbers ? "✔" : "✖"} Must contain numbers
+                                </li>
+                                <li style={{ color: passwordChecks.containsSpecial ? "green" : "red" }}>
+                                    {passwordChecks.containsSpecial ? "✔" : "✖"} Must contain special characters
+                                </li>
+                            </ul>
+
+                            {/* Confirm Password */}
                             <div className="mb-3">
                                 <label className="form-label">Confirm Password</label>
-                                <input type="password" required className="form-control"
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)} />
+                                <input type="password" className="form-control"
+                                    name="confirmPassword"
+                                    value={form.confirmPassword}
+                                    onChange={handleChange}
+                                    required />
                             </div>
 
-                            <button className="btn btn-primary-custom" type="submit">
+                            <button
+                                className="btn btn-primary-custom"
+                                type="submit"
+                                disabled={!allValid}
+                            >
                                 Create Account
                             </button>
                         </form>
 
-                        <div className="auth-footer mt-3">
-                            Already have an account? <Link to="/login" className="auth-link">Login</Link>
+                        <div className="auth-footer">
+                            Already have an account? <Link to="/login">Login</Link>
                         </div>
 
                     </div>
