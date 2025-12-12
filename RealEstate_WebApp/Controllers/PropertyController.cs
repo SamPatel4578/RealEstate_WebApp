@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RealEstate_WebApp.Models;
@@ -20,102 +18,65 @@ namespace RealEstate_WebApp.Controllers
             _context = context;
         }
 
-        // GET: api/Property
+        // GET: api/Property?type=sale | api/Property?type=rent
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Property>>> GetProperties()
+        public async Task<ActionResult<IEnumerable<object>>> GetProperties(
+            [FromQuery] string type = "sale"
+        )
         {
-            return await _context.Properties.ToListAsync();
-        }
-
-        // GET: api/Property/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Property>> GetProperty(int id)
-        {
-            var @property = await _context.Properties.FindAsync(id);
-
-            if (@property == null)
+            if (type.ToLower() == "rent")
             {
-                return NotFound();
+                var rentals = await _context.RentalProperties
+                    .Include(rp => rp.Property)
+                        .ThenInclude(p => p.Bedrooms)
+                    .Include(rp => rp.Property)
+                        .ThenInclude(p => p.CarSpaces)
+                    .Select(rp => new
+                    {
+                        property = rp.Property,
+                        rent = rp.Rent,
+
+                        // ✅ FIXED
+                        bedrooms = rp.Property.Bedrooms.Any()
+                            ? rp.Property.Bedrooms.Max(b => b.BedroomNo)
+                            : 0,
+
+                        bathrooms =
+                            (rp.Property.BathroomsWithToilets ?? 0) +
+                            (rp.Property.BathroomsOnly ?? 0),
+
+                        carSpaces = rp.Property.CarSpaces.Sum(cs => cs.NumberOfSpaces)
+                    })
+                    .ToListAsync();
+
+                return Ok(rentals);
             }
 
-            return @property;
-        }
-
-        // PUT: api/Property/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProperty(int id, Property @property)
-        {
-            if (id != @property.PropertyId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(@property).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PropertyExists(id))
+            // DEFAULT = SALE
+            var sales = await _context.SalesProperties
+                .Include(sp => sp.Property)
+                    .ThenInclude(p => p.Bedrooms)
+                .Include(sp => sp.Property)
+                    .ThenInclude(p => p.CarSpaces)
+                .Select(sp => new
                 {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                    property = sp.Property,
+                    salePrice = sp.SalePrice,
 
-            return NoContent();
-        }
+                    // ✅ FIXED
+                    bedrooms = sp.Property.Bedrooms.Any()
+                        ? sp.Property.Bedrooms.Max(b => b.BedroomNo)
+                        : 0,
 
-        // POST: api/Property
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Property>> PostProperty(Property @property)
-        {
-            _context.Properties.Add(@property);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (PropertyExists(@property.PropertyId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                    bathrooms =
+                        (sp.Property.BathroomsWithToilets ?? 0) +
+                        (sp.Property.BathroomsOnly ?? 0),
 
-            return CreatedAtAction("GetProperty", new { id = @property.PropertyId }, @property);
-        }
+                    carSpaces = sp.Property.CarSpaces.Sum(cs => cs.NumberOfSpaces)
+                })
+                .ToListAsync();
 
-        // DELETE: api/Property/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProperty(int id)
-        {
-            var @property = await _context.Properties.FindAsync(id);
-            if (@property == null)
-            {
-                return NotFound();
-            }
-
-            _context.Properties.Remove(@property);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool PropertyExists(int id)
-        {
-            return _context.Properties.Any(e => e.PropertyId == id);
+            return Ok(sales);
         }
     }
 }

@@ -31,14 +31,17 @@
 
             {/* CONTENT */}
             <div className="v6-card-content">
-                <h3 className="v6-price">${price.toLocaleString()}</h3>
+                <h3 className="v6-price">
+                    {price !== "--" ? `$${price.toLocaleString()}` : "--"}
+                </h3>
+
                 <h4 className="v6-title">{address}</h4>
                 <p className="v6-location">{p.addressSuburb ?? "Unknown Suburb"}</p>
 
                 <div className="v6-meta">
-                    <span>🛏 {p.bedroomsOnly ?? 0}</span>
-                    <span>🛁 {p.bathroomsOnly ?? 0}</span>
-                    <span>🚗 {p.carSpaces?.length ?? 0}</span>
+                    <span>🛏 {property.bedrooms}</span>
+                    <span>🛁 {property.bathrooms}</span>
+                    <span>🚗 {property.carSpaces}</span>
                 </div>
             </div>
 

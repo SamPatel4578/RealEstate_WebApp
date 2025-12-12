@@ -25,8 +25,8 @@ export default function Properties() {
     const [properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const API_SALE = "https://localhost:7282/api/SalesProperties";
-    const API_RENT = "https://localhost:7282/api/RentalProperties";
+    const API_SALE = "https://localhost:7282/api/Property?type=sale";
+    const API_RENT = "https://localhost:7282/api/Property?type=rent";
 
     /* ===============================
        LOAD DATA FROM BACKEND
