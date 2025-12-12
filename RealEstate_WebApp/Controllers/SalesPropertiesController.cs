@@ -24,8 +24,11 @@ namespace RealEstate_WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SalesProperty>>> GetSalesProperties()
         {
-            return await _context.SalesProperties.ToListAsync();
+            return await _context.SalesProperties
+                .Include(p => p.Property)
+                .ToListAsync();
         }
+
 
         // GET: api/SalesProperties/5
         [HttpGet("{id}")]
@@ -101,7 +104,10 @@ namespace RealEstate_WebApp.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSalesProperty(int id)
         {
-            var salesProperty = await _context.SalesProperties.FindAsync(id);
+            var salesProperty = await _context.SalesProperties
+                .Include(p => p.Property)
+                .FirstOrDefaultAsync(p => p.PropertyId == id);
+
             if (salesProperty == null)
             {
                 return NotFound();

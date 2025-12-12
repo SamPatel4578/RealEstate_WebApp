@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RealEstate_WebApp.Models;
 
 public partial class SalesProperty
 {
+    [Column("propertyID")]
+    [ForeignKey("Property")]
     public int PropertyId { get; set; }
 
     public bool? OnSaleMarket { get; set; }
@@ -25,5 +28,5 @@ public partial class SalesProperty
 
     public string? DescriptionSale { get; set; }
 
-    public virtual Property Property { get; set; } = null!;
+    public virtual Property Property { get; set; }
 }

@@ -1,71 +1,47 @@
-﻿import { Link } from "react-router-dom";
+﻿import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Header() {
+    const location = useLocation();
+    const [scrolled, setScrolled] = useState(false);
 
-    const [user, setUser] = useState(null);
+    const hideNavbar =
+        location.pathname === "/login" || location.pathname === "/signup";
 
     useEffect(() => {
-        const saved = localStorage.getItem("user");
-        if (saved) setUser(JSON.parse(saved));
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 30);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const handleLogout = () => {
-        localStorage.removeItem("user");
-        window.location.href = "/login";
-    };
+    if (hideNavbar) return null;
 
     return (
-        <nav className="navbar navbar-expand-lg custom-navbar sticky-top">
-            <div className="container">
+        <header className={`glass-navbar ${scrolled ? "scrolled" : ""}`}>
+            <div className="glass-nav-inner">
 
-                <Link className="navbar-brand" to="/">DreamHome Realty</Link>
+                {/* LOGO */}
+                <Link to="/" className="nav-logo">
+                    DreamHome Realty
+                </Link>
 
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+                {/* CENTER MENU */}
+                <nav className="nav-menu">
+                    <Link to="/" className="nav-link">Home</Link>
+                    <Link to="/properties" className="nav-link">Listing</Link>
+                    <Link to="/about" className="nav-link">About</Link>
+                    <Link to="/contact" className="nav-link">Contact</Link>
+                </nav>
 
-                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul className="navbar-nav align-items-center">
-
-                        <li className="nav-item dropdown">
-                            <button className="nav-link dropdown-toggle btn btn-link" data-bs-toggle="dropdown">
-                                Menu
-                            </button>
-                            <ul className="dropdown-menu dropdown-menu-end">
-                                <li><Link className="dropdown-item" to="/buy">Buy</Link></li>
-                                <li><Link className="dropdown-item" to="/rent">Rent</Link></li>
-                                <li><Link className="dropdown-item" to="/sell">Sell</Link></li>
-                                <li><Link className="dropdown-item" to="/contact">Contact</Link></li>
-                            </ul>
-                        </li>
-
-                        {/* USER LOGGED IN */}
-                        {user ? (
-                            <>
-                                <li className="nav-item ms-3 me-3">
-                                    <span className="nav-link">👋 Hello, {user.firstName}</span>
-                                </li>
-
-                                <li className="nav-item">
-                                    <button className="btn btn-login-nav" onClick={handleLogout}>Logout</button>
-                                </li>
-                            </>
-                        ) : (
-                            <>
-                                <li className="nav-item ms-3 me-2">
-                                    <Link className="btn btn-login-nav" to="/login">Login</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="btn btn-login-nav" to="/signup">Create Account</Link>
-                                </li>
-                            </>
-                        )}
-
-                    </ul>
+                {/* RIGHT ACTIONS */}
+                <div className="nav-actions">
+                    <Link to="/login" className="btn-nav">Login</Link>
+                    <Link to="/signup" className="btn-nav">Sign Up</Link>
                 </div>
+
             </div>
-        </nav>
+        </header>
     );
 }
-

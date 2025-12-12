@@ -24,14 +24,21 @@ namespace RealEstate_WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RentalProperty>>> GetRentalProperties()
         {
-            return await _context.RentalProperties.ToListAsync();
+            return await _context.RentalProperties
+                .Include(p => p.Property)
+                .ToListAsync();
+
         }
+
 
         // GET: api/RentalProperties/5
         [HttpGet("{id}")]
         public async Task<ActionResult<RentalProperty>> GetRentalProperty(int id)
         {
-            var rentalProperty = await _context.RentalProperties.FindAsync(id);
+            var rentalProperty = await _context.RentalProperties
+                .Include(p => p.Property)
+                .FirstOrDefaultAsync(p => p.PropertyId == id);
+
 
             if (rentalProperty == null)
             {

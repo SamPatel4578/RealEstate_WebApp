@@ -1,6 +1,7 @@
 ﻿import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../styles/Signup.css";
 
 export default function Signup() {
 
@@ -18,24 +19,18 @@ export default function Signup() {
     });
 
     // -------------------------
-    // Password Validation State
+    // Password Validation
     // -------------------------
     const [lengthOK, setLengthOK] = useState(false);
     const [containsLetter, setContainsLetter] = useState(false);
     const [containsNumber, setContainsNumber] = useState(false);
     const [containsSpecial, setContainsSpecial] = useState(false);
 
-    // -------------------------
-    // Form Change Handler
-    // -------------------------
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm(prev => ({ ...prev, [name]: value }));
     };
 
-    // -------------------------
-    // Password Strength Check
-    // -------------------------
     useEffect(() => {
         const pwd = form.password;
 
@@ -54,14 +49,8 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Required field checks
-        if (!form.firstName || !form.lastName || !form.dob || !form.email || !form.role || !form.password) {
-            alert("All fields are required.");
-            return;
-        }
-
         if (!allValid) {
-            alert("Password does not meet the requirement.");
+            alert("Password does not meet all requirements.");
             return;
         }
 
@@ -71,7 +60,6 @@ export default function Signup() {
         }
 
         try {
-            // Create User
             await axios.post("https://localhost:7282/api/users", {
                 firstName: form.firstName,
                 lastName: form.lastName,
@@ -81,16 +69,12 @@ export default function Signup() {
                 password: form.password
             });
 
-            // Auto-login
             const loginResponse = await axios.post("https://localhost:7282/api/users/login", {
                 email: form.email,
                 password: form.password
             });
 
-            // Save user
             localStorage.setItem("user", JSON.stringify(loginResponse.data));
-
-            // Redirect
             window.location.href = "/dashboard";
 
         } catch (err) {
@@ -99,112 +83,156 @@ export default function Signup() {
     };
 
     // -------------------------------------------------
-    //  PAGE RETURN — THIS WAS BREAKING IN YOUR FILE
+    //  PAGE RETURN WITH AUTH NAVBAR + MODERN UI
     // -------------------------------------------------
     return (
-        <>
-            <section className="hero-auth">
-                <h1>Create Your Account</h1>
-            </section>
+        <div className="auth-page">
+            {/* AUTH NAVBAR */}
+            <header className="auth-navbar">
+                <div className="auth-nav-container">
+                    <Link to="/" className="auth-logo">DreamHome Realty</Link>
 
-            <div className="container">
-                <div className="auth-container">
-                    <div className="card auth-card">
+                    <div className="auth-nav-right">
+                        <Link to="/login" className="auth-nav-btn">Login</Link>
+                        <Link to="/signup" className="auth-nav-btn">Sign Up</Link>
+                    </div>
+                </div>
+            </header>
 
-                        <div className="auth-emoji">🎉</div>
-                        <h2 className="auth-title">Sign Up</h2>
-                        <p className="auth-subtitle">Create your account to get started</p>
+            {/* MAIN SIGNUP LAYOUT */}
+            <div className="auth-wrapper">
+
+                {/* LEFT SIDE FORM */}
+                <div className="auth-left">
+                    <div className="auth-card signup-card">
+
+                        <h2 className="auth-title mb-4">Create your account</h2>
 
                         <form onSubmit={handleSubmit}>
 
                             {/* First Name */}
-                            <div className="mb-3">
-                                <label className="form-label">First Name</label>
-                                <input type="text" className="form-control"
-                                    name="firstName" value={form.firstName}
-                                    onChange={handleChange} required />
-                            </div>
+                            <input
+                                type="text"
+                                name="firstName"
+                                placeholder="First Name"
+                                className="input-auth"
+                                required
+                                value={form.firstName}
+                                onChange={handleChange}
+                            />
 
                             {/* Last Name */}
-                            <div className="mb-3">
-                                <label className="form-label">Last Name</label>
-                                <input type="text" className="form-control"
-                                    name="lastName" value={form.lastName}
-                                    onChange={handleChange} required />
-                            </div>
+                            <input
+                                type="text"
+                                name="lastName"
+                                placeholder="Last Name"
+                                className="input-auth"
+                                required
+                                value={form.lastName}
+                                onChange={handleChange}
+                            />
 
                             {/* DOB */}
-                            <div className="mb-3">
-                                <label className="form-label">Date of Birth</label>
-                                <input type="date" className="form-control"
-                                    name="dob" value={form.dob}
-                                    onChange={handleChange} required />
-                            </div>
+                            <input
+                                type="date"
+                                name="dob"
+                                className="input-auth"
+                                required
+                                value={form.dob}
+                                onChange={handleChange}
+                            />
 
                             {/* Email */}
-                            <div className="mb-3">
-                                <label className="form-label">Email</label>
-                                <input type="email" className="form-control"
-                                    name="email" value={form.email}
-                                    onChange={handleChange} required />
-                            </div>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email Address"
+                                className="input-auth"
+                                required
+                                value={form.email}
+                                onChange={handleChange}
+                            />
 
                             {/* Role */}
-                            <div className="mb-3">
-                                <label className="form-label">Role</label>
-                                <select className="form-select"
-                                    name="role" value={form.role}
-                                    onChange={handleChange} required>
-                                    <option value="Customer">Customer</option>
-                                    <option value="Agent">Agent</option>
-                                </select>
-                            </div>
+                            <select
+                                name="role"
+                                className="input-auth"
+                                required
+                                value={form.role}
+                                onChange={handleChange}
+                            >
+                                <option value="Customer">Customer</option>
+                                <option value="Agent">Agent</option>
+                            </select>
 
                             {/* Password */}
-                            <div className="mb-3">
-                                <label className="form-label">Password</label>
-                                <input type="password" className="form-control"
-                                    name="password" value={form.password}
-                                    onChange={handleChange} required />
-                            </div>
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                className="input-auth"
+                                required
+                                value={form.password}
+                                onChange={handleChange}
+                            />
 
-                            {/* Password Rules */}
-                            <div style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>
-                                <p style={{ color: lengthOK ? "green" : "red" }}>
-                                    {lengthOK ? "✔" : "✖"} Password must be EXACTLY 14 characters
+                            {/* Validation Rules */}
+                            <div className="password-rules">
+                                <p className={lengthOK ? "ok" : "bad"}>
+                                    {lengthOK ? "✔" : "✖"} Must be EXACTLY 14 characters
                                 </p>
-                                <p style={{ color: containsLetter ? "green" : "red" }}>
+                                <p className={containsLetter ? "ok" : "bad"}>
                                     {containsLetter ? "✔" : "✖"} Must contain a letter
                                 </p>
-                                <p style={{ color: containsNumber ? "green" : "red" }}>
+                                <p className={containsNumber ? "ok" : "bad"}>
                                     {containsNumber ? "✔" : "✖"} Must contain a number
                                 </p>
-                                <p style={{ color: containsSpecial ? "green" : "red" }}>
-                                    {containsSpecial ? "✔" : "✖"} Must contain a special character
+                                <p className={containsSpecial ? "ok" : "bad"}>
+                                    {containsSpecial ? "✔" : "✖"} Must contain a special symbol
                                 </p>
                             </div>
 
                             {/* Confirm Password */}
-                            <div className="mb-3">
-                                <label className="form-label">Confirm Password</label>
-                                <input type="password" className="form-control"
-                                    name="confirmPassword" value={form.confirmPassword}
-                                    onChange={handleChange} required />
-                            </div>
+                            <input
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="Confirm Password"
+                                className="input-auth"
+                                required
+                                value={form.confirmPassword}
+                                onChange={handleChange}
+                            />
 
-                            <button className="btn btn-primary-custom" type="submit">
-                                Create Account
+                            <button type="submit" className="btn-auth">
+                                Submit Request
                             </button>
+
                         </form>
 
-                        <div className="auth-footer">
-                            Already have an account?
-                            <Link to="/login" className="auth-link ms-1">Login</Link>
+                        {/* Social Login */}
+                        <p className="or-line">Or signup with</p>
+
+                        <div className="social-row">
+                            <i className="fab fa-facebook"></i>
+                            <i className="fab fa-x-twitter"></i>
+                            <i className="fab fa-linkedin"></i>
+                            <i className="fab fa-google"></i>
                         </div>
+
+                        {/* Redirect to Login */}
+                        <p className="auth-footer">
+                            Already have an account?
+                            <Link to="/login" className="auth-link"> Login Now</Link>
+                        </p>
 
                     </div>
                 </div>
+
+                {/* RIGHT IMAGE */}
+                <div className="auth-right"></div>
+
             </div>
-        </>
+        </div>   // <--- CLOSE WRAPPER
     );
+
 }

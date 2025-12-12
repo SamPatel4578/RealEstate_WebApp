@@ -7,6 +7,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="realestate_app\realestate_app\src\NewFolder\**" />
+	  <Content Remove="realestate_app\realestate_app\src\NewFolder\**" />
+	  <EmbeddedResource Remove="realestate_app\realestate_app\src\NewFolder\**" />
+	  <None Remove="realestate_app\realestate_app\src\NewFolder\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />

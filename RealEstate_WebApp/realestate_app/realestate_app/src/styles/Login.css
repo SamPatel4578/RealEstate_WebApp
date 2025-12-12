@@ -1,0 +1,160 @@
+﻿body {
+}
+/* MAIN WRAPPER */
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* LEFT SIDE */
+.login-left {
+    width: 50%;
+    background: #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* LOGIN CARD */
+.login-box {
+    width: 380px;
+    background: white;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+
+.login-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* LABELS */
+.login-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+/* INPUT FIELDS */
+.login-input {
+    width: 100%;
+    padding: 10px 14px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 12px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+    .login-btn:hover {
+        opacity: 0.8;
+    }
+
+/* REGISTER LINK */
+.login-register {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.9rem;
+}
+
+    .login-register a {
+        color: #6a5acd;
+        font-weight: 600;
+    }
+
+/* RIGHT SIDE IMAGE */
+.login-right {
+    width: 50%;
+    height: 100%;
+}
+
+    .login-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+/* RESPONSIVE MODE */
+@media (max-width: 900px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+
+    .login-left,
+    .login-right {
+        width: 100%;
+        height: auto;
+    }
+
+        .login-right img {
+            height: 320px;
+        }
+}
+
+
+
+/* AUTH PAGE NAVBAR */
+.auth-navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-nav-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222 !important;
+    text-decoration: none;
+}
+
+.auth-nav-right {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-nav-btn {
+    padding: 6px 18px;
+    border-radius: 25px;
+    background: #f3f3f3;
+    color: #222 !important;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .auth-nav-btn:hover {
+        background: #e6e6e6;
+    }

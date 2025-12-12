@@ -308,7 +308,7 @@ public partial class RealestateDbContext : DbContext
                 .HasColumnName("internetOption");
             entity.Property(e => e.LandSize).HasColumnName("landSize");
             entity.Property(e => e.PropertyImage)
-                .HasMaxLength(100)
+                .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("propertyImage");
             entity.Property(e => e.PropertyTypeCode)

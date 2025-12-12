@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RealEstate_WebApp.Models;
 
 public partial class RentalProperty
 {
+    [Column("propertyID")]
+
     public int PropertyId { get; set; }
 
     public bool? OnRentalMarket { get; set; }
@@ -31,5 +34,5 @@ public partial class RentalProperty
 
     public virtual PeriodUnit? MinimumRentPeriodUnitNavigation { get; set; }
 
-    public virtual Property Property { get; set; } = null!;
+    public virtual Property Property { get; set; }
 }

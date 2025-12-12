@@ -1,35 +1,47 @@
 ﻿export default function PropertyCard({ property }) {
+
+    if (!property || !property.property) return null;
+
+    const p = property.property;
+
+    const image = p.propertyImage?.startsWith("Images/")
+        ? `https://localhost:7216/${p.propertyImage}`
+        : p.propertyImage;
+
+    const price =
+        property.salePrice ??
+        property.onMarketPrice ??
+        property.rent ??
+        "--";
+
+    const address = `${p.addressHouseNumber ?? ""} ${p.addressStreetName ?? ""} ${p.addressStreetType ?? ""}`.trim();
+
     return (
-        <div className="col-lg-4 col-md-6">
-            <div className="card property-card">
+        <div className="v6-card">
 
-                <div className="property-image">
-                    <span>🏡</span>
-                    <div className="property-badge">
-                        {property.onSaleMarket ? "For Sale" : property.onRentalMarket ? "For Rent" : ""}
-                    </div>
-                </div>
-
-                <div className="card-body property-content">
-                    <div className="property-price">
-                        {property.onMarketPrice || property.onMarketRent || "N/A"}
-                    </div>
-
-                    <h5 className="property-title">
-                        {property.addressHouseNumber} {property.addressStreetName} {property.addressStreetType}
-                    </h5>
-
-                    <div className="property-location">
-                        📍 {property.addressSuburb}, {property.addressPostCode}
-                    </div>
-
-                    <div className="property-features">
-                        <div className="feature">📐 {property.buildingSize} sqm</div>
-                        <div className="feature">🌱 {property.landSize} sqm land</div>
-                    </div>
-                </div>
-
+            {/* IMAGE */}
+            <div
+                className="v6-card-image"
+                style={{ backgroundImage: `url(${image})` }}
+            >
+                <span className="v6-badge">
+                    {property.salePrice ? "For Sale" : "For Rent"}
+                </span>
             </div>
+
+            {/* CONTENT */}
+            <div className="v6-card-content">
+                <h3 className="v6-price">${price.toLocaleString()}</h3>
+                <h4 className="v6-title">{address}</h4>
+                <p className="v6-location">{p.addressSuburb ?? "Unknown Suburb"}</p>
+
+                <div className="v6-meta">
+                    <span>🛏 {p.bedroomsOnly ?? 0}</span>
+                    <span>🛁 {p.bathroomsOnly ?? 0}</span>
+                    <span>🚗 {p.carSpaces?.length ?? 0}</span>
+                </div>
+            </div>
+
         </div>
     );
 }

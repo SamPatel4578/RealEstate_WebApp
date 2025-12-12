@@ -1,0 +1,140 @@
+﻿.auth-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.auth-left {
+    width: 50%;
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-right {
+    width: 50%;
+    background-image: url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Form Card */
+.signup-card {
+    width: 380px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Input */
+.input-auth {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+/* Button */
+.btn-auth {
+    width: 100%;
+    padding: 12px;
+    background: black;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Password rules */
+.password-rules p {
+    margin: 2px 0;
+    font-size: 13px;
+}
+
+.password-rules .ok {
+    color: green;
+}
+
+.password-rules .bad {
+    color: red;
+}
+
+.or-line {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 13px;
+}
+
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+    .social-row i {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+.auth-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.auth-link {
+    color: #007bff;
+    font-weight: 600;
+}
+
+
+/* AUTH PAGE NAVBAR */
+.auth-navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-nav-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222 !important;
+    text-decoration: none;
+}
+
+.auth-nav-right {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-nav-btn {
+    padding: 6px 18px;
+    border-radius: 25px;
+    background: #f3f3f3;
+    color: #222 !important;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .auth-nav-btn:hover {
+        background: #e6e6e6;
+    }
