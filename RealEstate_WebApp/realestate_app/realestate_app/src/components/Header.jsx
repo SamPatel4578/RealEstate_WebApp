@@ -6,7 +6,7 @@ export default function Header() {
     const [scrolled, setScrolled] = useState(false);
 
     const hideNavbar =
-        location.pathname === "/login" || location.pathname === "/signup";
+        location.pathname === "/login" || location.pathname === "/signup" || location.pathname.startsWith("/property/") ;
 
     useEffect(() => {
         const handleScroll = () => {

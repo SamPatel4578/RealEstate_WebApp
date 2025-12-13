@@ -78,6 +78,11 @@
     .login-register a {
         color: #6a5acd;
         font-weight: 600;
+        text-decoration: none;
+    }
+
+    .login-register a:hover {
+        color: purple;
     }
 
 /* RIGHT SIDE IMAGE */

@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\components\\dashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\components\\dashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\styles\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\styles\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\components\\propertycard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\components\\propertycard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\components\\propertydetails.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\components\\propertydetails.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|c:\\projects\\realestate_webapp\\realestate_webapp\\realestate_app\\realestate_app\\src\\styles\\property.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{34609CBC-B5A6-4F3E-92A4-6A6344DEE310}|RealEstate_WebApp.csproj|solutionrelative:realestate_app\\realestate_app\\src\\styles\\property.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +39,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dashboard.jsx",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\Dashboard.jsx",
+              "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\components\\Dashboard.jsx",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\Dashboard.jsx",
+              "RelativeToolTip": "realestate_app\\realestate_app\\src\\components\\Dashboard.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-12-13T06:39:36.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.css",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\styles\\main.css",
+              "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\styles\\main.css",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\styles\\main.css",
+              "RelativeToolTip": "realestate_app\\realestate_app\\src\\styles\\main.css",
+              "ViewState": "AgIAAAgDAACA/v////8twC0DAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-13T06:29:55.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "PropertyCard.jsx",
               "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\PropertyCard.jsx",
               "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\components\\PropertyCard.jsx",
               "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\PropertyCard.jsx",
               "RelativeToolTip": "realestate_app\\realestate_app\\src\\components\\PropertyCard.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwB8AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-12-12T05:53:16.551Z",
+              "WhenOpened": "2025-12-13T06:28:45.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Property.css",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\styles\\Property.css",
+              "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\styles\\Property.css",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\styles\\Property.css",
+              "RelativeToolTip": "realestate_app\\realestate_app\\src\\styles\\Property.css",
+              "ViewState": "AgIAACkAAABAMjMzM5MwwCoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-13T04:06:25.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PropertyDetails.jsx",
+              "DocumentMoniker": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\PropertyDetails.jsx",
+              "RelativeDocumentMoniker": "realestate_app\\realestate_app\\src\\components\\PropertyDetails.jsx",
+              "ToolTip": "C:\\Projects\\RealEstate_WebApp\\RealEstate_WebApp\\realestate_app\\realestate_app\\src\\components\\PropertyDetails.jsx",
+              "RelativeToolTip": "realestate_app\\realestate_app\\src\\components\\PropertyDetails.jsx",
+              "ViewState": "AgIAAFAAAAAAgDAzMzPTv54AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-12-13T04:05:24.951Z",
               "EditorCaption": ""
             }
           ]

@@ -773,12 +773,14 @@ button {
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 6px;
+    color: #111;
 }
 
 .v6-title {
     font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 4px;
+    color: #111;
 }
 
 .v6-location {
@@ -796,3 +798,16 @@ button {
     margin-top: 10px;
 }
 
+/* REMOVE LINK DEFAULT STYLES */
+.v6-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+    .v6-card-link:visited,
+    .v6-card-link:hover,
+    .v6-card-link:active {
+        text-decoration: none;
+        color: inherit;
+    }

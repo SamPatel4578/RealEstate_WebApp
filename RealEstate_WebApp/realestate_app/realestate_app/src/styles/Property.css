@@ -1,0 +1,157 @@
+﻿/* PAGE OFFSET FOR FIXED NAVBAR */
+.property-details-page {
+    padding-top: 50px;
+}
+
+/* AUTH NAVBAR */
+.auth-navbar {
+    width: 100%;
+    background: #ffffff;
+    padding: 16px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-nav-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    text-decoration: none;
+}
+
+.auth-nav-right {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-nav-btn {
+    padding: 6px 18px;
+    border-radius: 25px;
+    background: #f3f3f3;
+    border: 1px solid #000;
+    text-decoration: none;
+    color: #222;
+}
+
+/* SHARED BORDER */
+.bordered {
+    border: 1px solid #000;
+    border-radius: 16px;
+}
+
+/* LAYOUT */
+.pd-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.pd-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.pd-suburb {
+    color: #555;
+}
+
+.pd-image-wrapper {
+    overflow: hidden;
+    margin-bottom: 24px;
+    border-radius: 5px;
+}
+
+    .pd-image-wrapper img {
+        width: 100%;
+        display: block;
+    }
+
+.pd-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 32px;
+}
+
+.pd-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.pd-card {
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+    .pd-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+.amenities {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+/* FORMS */
+.pd-card input,
+.pd-card textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* MORTGAGE */
+.mortgage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+    .mortgage-grid button {
+        grid-column: span 2;
+    }
+
+/* MAP */
+iframe {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .pd-grid {
+        grid-template-columns: 1fr;
+    }
+}

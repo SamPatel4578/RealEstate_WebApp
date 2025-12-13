@@ -34,7 +34,7 @@
   {
     "ContainingType": "RealEstate_WebApp.Controllers.PropertyController",
     "Method": "GetProperties",
-    "RelativePath": "api/Property",
+    "RelativePath": "api/property",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -45,17 +45,23 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RealEstate_WebApp.Controllers.PropertyController",
+    "Method": "GetPropertyById",
+    "RelativePath": "api/property/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "RealEstate_WebApp.Controllers.RentalPropertiesController",

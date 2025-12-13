@@ -214,7 +214,6 @@ export default function Signup() {
 
                         <div className="social-row">
                             <i className="fab fa-facebook"></i>
-                            <i className="fab fa-x-twitter"></i>
                             <i className="fab fa-linkedin"></i>
                             <i className="fab fa-google"></i>
                         </div>

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,8 +6,8 @@ using RealEstate_WebApp.Models;
 
 namespace RealEstate_WebApp.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/property")]
     public class PropertyController : ControllerBase
     {
         private readonly RealestateDbContext _context;
@@ -18,11 +17,11 @@ namespace RealEstate_WebApp.Controllers
             _context = context;
         }
 
-        // GET: api/Property?type=sale | api/Property?type=rent
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<object>>> GetProperties(
-            [FromQuery] string type = "sale"
-        )
+        // --------------------------------------------------
+        // GET: api/property?type=sale | type=rent
+        // --------------------------------------------------
+        [HttpGet("")]
+        public async Task<IActionResult> GetProperties([FromQuery] string type = "sale")
         {
             if (type.ToLower() == "rent")
             {
@@ -36,14 +35,11 @@ namespace RealEstate_WebApp.Controllers
                         property = rp.Property,
                         rent = rp.Rent,
 
-                        // ✅ FIXED
                         bedrooms = rp.Property.Bedrooms.Any()
                             ? rp.Property.Bedrooms.Max(b => b.BedroomNo)
                             : 0,
 
-                        bathrooms =
-                            (rp.Property.BathroomsWithToilets ?? 0) +
-                            (rp.Property.BathroomsOnly ?? 0),
+                        bathrooms = rp.Property.BathroomsWithToilets ?? 0,
 
                         carSpaces = rp.Property.CarSpaces.Sum(cs => cs.NumberOfSpaces)
                     })
@@ -52,7 +48,6 @@ namespace RealEstate_WebApp.Controllers
                 return Ok(rentals);
             }
 
-            // DEFAULT = SALE
             var sales = await _context.SalesProperties
                 .Include(sp => sp.Property)
                     .ThenInclude(p => p.Bedrooms)
@@ -63,20 +58,54 @@ namespace RealEstate_WebApp.Controllers
                     property = sp.Property,
                     salePrice = sp.SalePrice,
 
-                    // ✅ FIXED
                     bedrooms = sp.Property.Bedrooms.Any()
                         ? sp.Property.Bedrooms.Max(b => b.BedroomNo)
                         : 0,
 
-                    bathrooms =
-                        (sp.Property.BathroomsWithToilets ?? 0) +
-                        (sp.Property.BathroomsOnly ?? 0),
+                    bathrooms = sp.Property.BathroomsWithToilets ?? 0,
 
                     carSpaces = sp.Property.CarSpaces.Sum(cs => cs.NumberOfSpaces)
                 })
                 .ToListAsync();
 
             return Ok(sales);
+        }
+
+        // --------------------------------------------------
+        // GET: api/property/1997   ✅ THIS WAS MISSING/BROKEN
+        // --------------------------------------------------
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetPropertyById(int id)
+        {
+            var property = await _context.Properties
+                .Include(p => p.Bedrooms)
+                .Include(p => p.CarSpaces)
+                .FirstOrDefaultAsync(p => p.PropertyId == id);
+
+            if (property == null)
+                return NotFound($"Property {id} not found");
+
+            var sale = await _context.SalesProperties
+                .FirstOrDefaultAsync(sp => sp.PropertyId == id);
+
+            var rent = await _context.RentalProperties
+                .FirstOrDefaultAsync(rp => rp.PropertyId == id);
+
+            return Ok(new
+            {
+                property,
+
+                salePrice = sale?.SalePrice,
+                rent = rent?.Rent,
+
+                bedrooms = property.Bedrooms.Any()
+                    ? property.Bedrooms.Max(b => b.BedroomNo)
+                    : 0,
+
+                bathrooms = property.BathroomsWithToilets ?? 0,
+
+                carSpaces = property.CarSpaces.Sum(cs => cs.NumberOfSpaces)
+            });
         }
     }
 }
