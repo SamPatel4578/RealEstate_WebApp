@@ -72,120 +72,209 @@ button {
 }
 
 /* ========================================================= */
-/* GLASS STICKY NAVBAR (V6 Style)                            */
+/* UNIVERSAL GLASS NAVBAR – PRODUCTION READY                 */
 /* ========================================================= */
 
-.glass-navbar {
+.app-navbar {
     position: fixed;
-    top: 20px;
+    top: 18px;
     left: 50%;
     transform: translateX(-50%);
-    width: 92%;
+    width: min(94%, 1280px);
     padding: 14px 32px;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 56px;
+    background: rgba(15, 15, 15, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     z-index: 1000;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
-/* Inner layout */
-.glass-nav-inner {
+    .app-navbar.scrolled {
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+/* ========================================================= */
+/* INNER LAYOUT                                              */
+/* ========================================================= */
+
+.app-navbar-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Logo */
-.nav-logo {
-    color: #ffffff;
+/* ========================================================= */
+/* LOGO                                                      */
+/* ========================================================= */
+
+.app-navbar-logo {
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 800;
     text-decoration: none;
-}
-
-/* Menu links */
-.nav-menu {
-    display: flex;
-    gap: 32px;
-}
-
-.nav-link {
     color: #ffffff;
+    letter-spacing: 0.4px;
+}
+
+.app-navbar.scrolled .app-navbar-logo {
+    color: #111;
+}
+
+/* ========================================================= */
+/* MENU                                                      */
+/* ========================================================= */
+
+.app-navbar-menu {
+    display: flex;
+    gap: 34px;
+}
+
+.app-nav-link {
     text-decoration: none;
     font-weight: 500;
-    transition: 0.3s ease;
+    font-size: 0.95rem;
+    color: #ffffff;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
 }
 
-    .nav-link:hover {
-        opacity: 0.8;
+    .app-nav-link:hover {
+        opacity: 1;
     }
 
-/* Right side actions */
-.nav-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+.app-navbar.scrolled .app-nav-link {
+    color: #111;
 }
 
-.btn-nav {
-    background: white;
-    color: #222 !important;
-    padding: 7px 20px;
-    border-radius: 30px;
+/* ========================================================= */
+/* RIGHT ACTIONS                                             */
+/* ========================================================= */
+
+.app-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* USER */
+.app-navbar-user {
+    color: #ffffff;
     font-weight: 600;
+}
+
+.app-navbar.scrolled .app-navbar-user {
+    color: #111;
+}
+
+/* BUTTONS */
+.app-navbar-btn {
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
     text-decoration: none;
     border: none;
     cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-    .btn-nav:hover {
-        background: #ececec;
+    /* PRIMARY BUTTON */
+    .app-navbar-btn.primary {
+        background: #111;
+        color: #fff;
     }
 
-/* USER GREETING */
-.nav-user {
-    color: #fff;
-    font-weight: 600;
+        .app-navbar-btn.primary:hover {
+            background: #000;
+        }
+
+    /* GHOST BUTTON */
+    .app-navbar-btn.ghost {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+.app-navbar.scrolled .app-navbar-btn.ghost {
+    color: #111;
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
-/* FORCE white text when navbar is NOT scrolled */
-.glass-navbar:not(.scrolled) .nav-link,
-.glass-navbar:not(.scrolled) .nav-logo,
-.glass-navbar:not(.scrolled) .nav-user {
-    color: #ffffff !important;
+.app-navbar-btn.ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
 }
 
-    /* OPTIONAL: stronger hover */
-    .glass-navbar:not(.scrolled) .nav-link:hover {
-        color: #e2e2e2 !important;
-    }
 
-
-/* --------------------------------------- */
-/*  WHEN SCROLLED (WHITE NAVBAR MODE)      */
-/* --------------------------------------- */
-.glass-navbar.scrolled {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(0, 0, 0, 0.15);
+/* USER DROPDOWN WRAPPER */
+.app-user-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-    /* dark text mode when scrolled */
-    .glass-navbar.scrolled .nav-link,
-    .glass-navbar.scrolled .nav-logo,
-    .glass-navbar.scrolled .nav-user {
-        color: #222 !important;
+/* USER NAME */
+.app-navbar-user {
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.app-user-dropdown:hover .app-navbar-user {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* DROPDOWN MENU */
+.app-user-dropdown-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    min-width: 180px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.25s ease;
+    z-index: 1000;
+}
+
+/* SHOW ON HOVER */
+.app-user-dropdown:hover .app-user-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* DROPDOWN ITEMS */
+.app-user-dropdown-menu .dropdown-item {
+    display: block;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+    .app-user-dropdown-menu .dropdown-item:hover {
+        background: #cccccc;
+        border-radius: 8px;
     }
 
-    /* dark mode buttons */
-    .glass-navbar.scrolled .btn-nav {
-        background: #111 !important;
-        color: #fff !important;
+    /* LOGOUT STYLE */
+    .app-user-dropdown-menu .dropdown-item.logout {
+        color: #c62828;
+        font-weight: 500;
     }
-
-
 
 
 

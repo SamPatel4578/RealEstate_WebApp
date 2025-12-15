@@ -1,0 +1,251 @@
+﻿/* =========================
+   PAGE WRAPPER
+========================= */
+.dashboard-page {
+    background: #f7f9fc;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+/* =========================
+   DASHBOARD HERO (BACKGROUND IMAGE)
+========================= */
+.dashboard-hero {
+    height: 360px;
+    background-image: url("../Images/Dash_img.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.dashboard-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .dashboard-hero-overlay h1 {
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+/* =========================
+   DASHBOARD SHELL
+========================= */
+.dashboard-shell {
+    max-width: 1280px;
+    margin: -80px auto 0; /* pulls content up like Image */
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+    padding: 0 20px;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.dashboard-content {
+    min-width: 0;
+}
+
+/* =========================
+   CONTAINER & TITLES
+========================= */
+.dashboard-container {
+    padding-top: 0;
+}
+
+.dashboard-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #1f2937;
+}
+
+.section-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1f2937;
+}
+
+/* =========================
+   STATS
+========================= */
+.dashboard-stats {
+    margin-bottom: 40px;
+    padding-top: 40px;
+}
+
+.dashboard-stat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 22px 10px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .dashboard-stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .dashboard-stat-card small {
+        color: #6b7280;
+        font-size: 13px;
+    }
+
+    .dashboard-stat-card h4 {
+        margin-top: 8px;
+        font-weight: 600;
+        color: #111827;
+    }
+
+/* =========================
+   MAIN CARD
+========================= */
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   TABLE
+========================= */
+.dashboard-table th {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dashboard-table td {
+    vertical-align: middle;
+    padding: 18px 10px;
+    font-size: 14px;
+}
+
+.table-subtext {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+/* =========================
+   STATUS STYLES
+========================= */
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+    .status-pill.sale {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+
+    .status-pill.rent {
+        background: #ecfeff;
+        color: #0f766e;
+    }
+
+.status-available {
+    background: #dcfce7;
+    color: #166534;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 500;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.dashboard-sidebar {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 120px;
+}
+
+/* =========================
+   SIDEBAR PROFILE
+========================= */
+.sidebar-profile {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+    .sidebar-profile img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+    }
+
+    .sidebar-profile h6 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .sidebar-profile small {
+        color: #6b7280;
+    }
+
+/* =========================
+   SIDEBAR MENU
+========================= */
+.sidebar-menu a {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: #111827;
+    text-decoration: none;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+    .sidebar-menu a:hover {
+        background: #f3f4f6;
+    }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+    .dashboard-shell {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+    }
+
+    .dashboard-sidebar {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-hero-overlay h1 {
+        font-size: 26px;
+    }
+
+    .dashboard-title {
+        font-size: 22px;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+}

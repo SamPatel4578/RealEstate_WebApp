@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import PropertyDetails from "./components/PropertyDetails"
+import About from "./components/About"
 
 import './styles/main.css';
 
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/about" element={<About />} />
             </Routes>
 
             <Footer />

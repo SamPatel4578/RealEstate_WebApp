@@ -4,41 +4,84 @@ import { useEffect, useState } from "react";
 export default function Header() {
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
+    const [user, setUser] = useState(null);
 
     const hideNavbar =
-        location.pathname === "/login" || location.pathname === "/signup" || location.pathname.startsWith("/property/") ;
+        location.pathname === "/login" ||
+        location.pathname === "/signup";
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 30);
+            setScrolled(window.scrollY > 40);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        const savedUser = localStorage.getItem("user");
+        if (savedUser) {
+            setUser(JSON.parse(savedUser));
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+    };
+
     if (hideNavbar) return null;
 
     return (
-        <header className={`glass-navbar ${scrolled ? "scrolled" : ""}`}>
-            <div className="glass-nav-inner">
+        <header className={`app-navbar ${scrolled ? "scrolled" : ""}`}>
+            <div className="app-navbar-inner">
 
                 {/* LOGO */}
-                <Link to="/" className="nav-logo">
+                <Link to="/" className="app-navbar-logo">
                     DreamHome Realty
                 </Link>
 
-                {/* CENTER MENU */}
-                <nav className="nav-menu">
-                    <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/properties" className="nav-link">Listing</Link>
-                    <Link to="/about" className="nav-link">About</Link>
-                    <Link to="/contact" className="nav-link">Contact</Link>
+                {/* NAV LINKS */}
+                <nav className="app-navbar-menu">
+                    <Link to="/" className="app-nav-link">Home</Link>
+                    <Link to="/properties" className="app-nav-link">Listing</Link>
+                    <Link to="/about" className="app-nav-link">About</Link>
+                    <Link to="/contact" className="app-nav-link">Contact</Link>
                 </nav>
 
-                {/* RIGHT ACTIONS */}
-                <div className="nav-actions">
-                    <Link to="/login" className="btn-nav">Login</Link>
-                    <Link to="/signup" className="btn-nav">Sign Up</Link>
+                {/* ACTIONS */}
+                <div className="app-navbar-actions">
+                    {user ? (
+                        <div className="app-user-dropdown">
+                            <span className="app-navbar-user">
+                                👋🏻 <strong>{user.firstName}</strong>
+                            </span>
+
+                            <div className="app-user-dropdown-menu">
+                                <Link to="/dashboard" className="dropdown-item">
+                                    Dashboard
+                                </Link>
+                                <Link to="/profile" className="dropdown-item">
+                                    Profile
+                                </Link>
+                                <button
+                                    className="dropdown-item logout"
+                                    onClick={handleLogout}
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                            <Link to="/login" className="app-navbar-btn ghost">
+                                Login
+                            </Link>
+                            <Link to="/signup" className="app-navbar-btn primary">
+                                Sign Up
+                            </Link>
+                        </>
+                    )}
                 </div>
 
             </div>

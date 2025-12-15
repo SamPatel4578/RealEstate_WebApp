@@ -19,7 +19,7 @@ export default function Footer() {
 
                     <div className="newsletter-box">
                         <input type="email" placeholder="Enter Email Address" />
-                        <button><i className="btn"></i></button>
+                        <button type="submit"><i className="btn fas fa-arrow-circle-right"></i></button>
                     </div>
                 </div>
 
@@ -27,12 +27,14 @@ export default function Footer() {
                 <div className="footer-column">
                     <h3>Discover</h3>
                     <ul>
-                        <li><Link>New York</Link></li>
-                        <li><Link>Tokyo</Link></li>
-                        <li><Link>Dubai</Link></li>
-                        <li><Link>Hanoi</Link></li>
-                        <li><Link>Jakarta</Link></li>
-                        <li><Link>Florida</Link></li>
+                        <li><Link>Adelaide</Link></li>
+                        <li><Link>Brisbane</Link></li>
+                        <li><Link>Canberra</Link></li>
+                        <li><Link>Darwin</Link></li>
+                        <li><Link>Hobart</Link></li>
+                        <li><Link>Melbourne</Link></li>
+                        <li><Link>Perth</Link></li>
+                        <li><Link>Sydney</Link></li>
                     </ul>
                 </div>
 
@@ -61,12 +63,12 @@ export default function Footer() {
             </div>
 
             {/* SOCIAL + CURRENCY ROW */}
-            <div className="footer-bottom">
-                <span>$AUD</span> |
-                <span>Facebook</span>
-                <span>LinkedIn</span>
-                <span>YouTube</span>
-                <span>Instagram</span>
+            <div className="footer-bottom pt-3">
+                <span className="fa fa-dollar"> AUD</span> |
+                <span className="fa fa-facebook-square"> Facebook</span> |
+                <span className="fa fa-linkedin-square"> LinkedIn</span> |
+                <span className="fa fa-youtube-square"> YouTube</span> |
+                <span className="fa fa-instagram"> Instagram</span>
             </div>
 
             {/* COPYRIGHT */}

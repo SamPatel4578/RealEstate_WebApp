@@ -22,17 +22,6 @@ export default function PropertyDetails() {
 
     return (
         <>
-            {/* AUTH STYLE NAVBAR */}
-            <header className="auth-navbar">
-                <div className="auth-nav-container">
-                    <Link to="/" className="auth-logo">DreamHome Realty</Link>
-                    <div className="auth-nav-right">
-                        <Link to="/login" className="auth-nav-btn">Login</Link>
-                        <Link to="/signup" className="auth-nav-btn">Sign Up</Link>
-                    </div>
-                </div>
-            </header>
-
             <div className="property-details-page">
                 <div className="pd-wrapper">
 
