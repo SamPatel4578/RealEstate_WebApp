@@ -46,7 +46,6 @@ export default function Header() {
                     <Link to="/" className="app-nav-link">Home</Link>
                     <Link to="/properties" className="app-nav-link">Listing</Link>
                     <Link to="/about" className="app-nav-link">About</Link>
-                    <Link to="/contact" className="app-nav-link">Contact</Link>
                 </nav>
 
                 {/* ACTIONS */}

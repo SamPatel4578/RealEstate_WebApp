@@ -7,9 +7,19 @@ import Properties from "./components/Properties";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Dashboard from "./components/Dashboard";
-import PropertyDetails from "./components/PropertyDetails"
-import About from "./components/About"
+import PropertyDetails from "./components/PropertyDetails";
+import About from "./components/About";
+
+
+import DashboardLayout from "./layouts/DashboardLayout";
+import DashboardHome from "./pages/dashboard/DashboardHome";
+import MyProperty from "./pages/dashboard/MyProperty";
+import FavouriteProperty from "./pages/dashboard/FavouriteProperty";
+import AddProperty from "./pages/dashboard/AddProperty";
+import ProfileSettings from "./pages/dashboard/ProfileSettings";
+import ValuableAgents from "./pages/dashboard/ValuableAgents";
+import ValuableClients from "./pages/dashboard/ValuableClients";
+import ChangePassword from "./pages/dashboard/ChangePassword";
 
 import './styles/main.css';
 
@@ -31,12 +41,32 @@ function App() {
 
                 <Route path="/property/:id" element={<PropertyDetails />} />
 
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/DashboardHome" element={<DashboardHome />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/about" element={<About />} />
             </Routes>
 
+            <Routes>
+
+                {/* DASHBOARD ROUTES */}
+                <Route path="/dashboard" element={<DashboardLayout title="Dashboard" />}>
+                    <Route index element={<DashboardHome />} />
+
+                    <Route path="my-properties" element={<MyProperty />} />
+                    <Route path="add-property" element={<AddProperty />} />
+                    <Route path="favourites" element={<FavouriteProperty />} />
+                    <Route path="profile" element={<ProfileSettings />} />
+                    <Route path="change-password" element={<ChangePassword />} />
+
+                    <Route path="valuable-agents" element={<ValuableAgents />} />
+                    <Route path="valuable-clients" element={<ValuableClients />} />
+                </Route>
+
+
+            </Routes>
+
+            
             <Footer />
         </div>
     );
