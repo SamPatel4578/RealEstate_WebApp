@@ -43,9 +43,31 @@ export default function Header() {
 
                 {/* NAV LINKS */}
                 <nav className="app-navbar-menu">
-                    <Link to="/" className="app-nav-link">Home</Link>
-                    <Link to="/properties" className="app-nav-link">Listing</Link>
-                    <Link to="/about" className="app-nav-link">About</Link>
+
+                    <Link to="/" className="app-nav-link">
+                        Home
+                    </Link>
+
+                    {/* LISTING DROPDOWN */}
+                    <div className="app-nav-dropdown">
+                        <span className="app-nav-link dropdown-trigger">
+                            Listing ▾
+                        </span>
+
+                        <div className="app-nav-dropdown-menu">
+                            <Link to="/properties/buy" className="dropdown-item">
+                                Buy Property
+                            </Link>
+                            <Link to="/properties/rent" className="dropdown-item">
+                                Rent Property
+                            </Link>
+                        </div>
+                    </div>
+
+                    <Link to="/about" className="app-nav-link">
+                        About
+                    </Link>
+
                 </nav>
 
                 {/* ACTIONS */}

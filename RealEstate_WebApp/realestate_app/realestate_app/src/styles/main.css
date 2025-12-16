@@ -277,6 +277,58 @@ button {
     }
 
 
+/* =========================
+   LISTING DROPDOWN
+========================= */
+
+.app-nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+.app-nav-dropdown-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    min-width: 180px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.25s ease;
+    z-index: 1000;
+}
+
+/* SHOW ON HOVER */
+.app-nav-dropdown:hover .app-nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* DROPDOWN LINKS */
+.app-nav-dropdown-menu .dropdown-item {
+    display: block;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+}
+
+    .app-nav-dropdown-menu .dropdown-item:hover {
+        background: #f3f4f6;
+        border-radius: 8px;
+    }
+
+
 
 /* ============================================================= */
 /* MOBILE NAVIGATION                                              */

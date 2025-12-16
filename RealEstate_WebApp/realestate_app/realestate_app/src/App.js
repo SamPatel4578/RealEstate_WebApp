@@ -21,6 +21,11 @@ import ValuableAgents from "./pages/dashboard/ValuableAgents";
 import ValuableClients from "./pages/dashboard/ValuableClients";
 import ChangePassword from "./pages/dashboard/ChangePassword";
 
+import ListingsLayout from "./components/listings/ListingsLayout"
+import BuyListings from "./components/listings/BuyListings";
+import RentListings from "./components/listings/RentListings";
+
+
 import './styles/main.css';
 
 function App() {
@@ -34,7 +39,6 @@ function App() {
                     element={
                         <>
                             <Hero />
-                            <Properties />
                         </>
                     }
                 />
@@ -45,6 +49,11 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/about" element={<About />} />
+
+                <Route path="/properties/buy" element={<ListingsLayout mode="buy" />} />
+                <Route path="/properties/rent" element={<ListingsLayout mode="rent" />} />
+
+
             </Routes>
 
             <Routes>

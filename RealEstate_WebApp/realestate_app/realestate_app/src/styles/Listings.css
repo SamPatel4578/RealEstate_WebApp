@@ -1,0 +1,142 @@
+﻿/* =========================
+   LISTINGS PAGE (V2)
+========================= */
+
+.listings-v2-page {
+    padding: 60px 0;
+    background: #fafafa;
+    padding-top: 150px;
+}
+
+.listings-v2-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+
+/* =========================
+   FILTER SIDEBAR
+========================= */
+
+.filters-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+}
+
+/* FILTER BLOCK */
+.filter-block {
+    margin-bottom: 22px;
+}
+
+.filter-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* CHECKBOX */
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+    .filter-option input {
+        cursor: pointer;
+    }
+
+/* INPUT */
+.filter-input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+/* RANGE INPUTS */
+.range-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+    .range-row input {
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        font-size: 14px;
+    }
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.listings-v2-results {
+    width: 100%;
+}
+
+.listings-v2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+    .listings-v2-header h3 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+/* SORT */
+.listings-sort {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.listings-v2-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* LOADING */
+.listings-loading {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+    .listings-v2-container {
+        grid-template-columns: 1fr;
+    }
+
+    .listings-v2-filters {
+        position: relative;
+        top: 0;
+    }
+
+    .listings-v2-grid {
+        grid-template-columns: 1fr;
+    }
+}
